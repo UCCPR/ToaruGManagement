@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
+    />
+    <meta name="theme-color" content="#071521" />
+    <meta name="description" content="某角色的身份推理——《魔法禁书目录》非官方角色猜测游戏，支持单人挑战与多人实时对战。" />
+    <link
+      rel="preload"
+      as="image"
+      href="/ToaruGManagement/toaru-character-title.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <script>
+      try {
+        var storedUiTheme = localStorage.getItem('ui-theme');
+        if (localStorage.getItem('ui-motion') === 'off') {
+          document.documentElement.dataset.motion = 'reduced';
+        }
+        var initTheme =
+          storedUiTheme === 'light'
+            ? 'light'
+            : storedUiTheme === 'blast'
+              ? 'blast'
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'blast';
+        document.documentElement.dataset.theme = initTheme;
+        document.documentElement.style.colorScheme = initTheme === 'blast' ? 'dark' : 'light';
+        document.documentElement.style.background = initTheme === 'blast' ? '#071521' : '#edf7ff';
+        var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) themeColorMeta.content = initTheme === 'blast' ? '#071521' : '#edf7ff';
+        document.documentElement.dataset.themeReady = '';
+      } catch (_) {
+        document.documentElement.dataset.theme = 'blast';
+        document.documentElement.style.background = '#071521';
+        document.documentElement.dataset.themeReady = '';
+      }
+    </script>
+    <title>某角色的身份推理 - 魔法禁书目录角色猜测游戏</title>
+    <script type="module" crossorigin src="/ToaruGManagement/assets/index-B8AplSml.js"></script>
+    <link rel="modulepreload" crossorigin href="/ToaruGManagement/assets/i18n-4zP-jgbi.js">
+    <link rel="modulepreload" crossorigin href="/ToaruGManagement/assets/vendor-Edzc1saq.js">
+    <link rel="modulepreload" crossorigin href="/ToaruGManagement/assets/realtime-BCT6OVBj.js">
+  </head>
+  <body>
+    <noscript>需要启用 JavaScript 才能运行本应用。/ JavaScript is required to run this app.</noscript>
+    <div id="root"></div>
+    <link rel="stylesheet" crossorigin href="/ToaruGManagement/assets/index-CQa9UeeG.css">
+    <link rel="stylesheet" href="/ToaruGManagement/assets/blast-foundation-6tTzQU6o.css" media="not all" data-blast-theme />
+    <link rel="stylesheet" href="/ToaruGManagement/assets/blast-pages-DC3O9_a3.css" media="not all" data-blast-theme />
+    <link rel="stylesheet" href="/ToaruGManagement/assets/blast-responsive-BZcT3jH7.css" media="not all" data-blast-theme />
+    <script>
+      try {
+        var isLightTheme = document.documentElement.dataset.theme === 'light';
+        var blastSheets = document.querySelectorAll('link[data-blast-theme]');
+        for (var i = 0; i < blastSheets.length; i += 1) {
+          if (isLightTheme) {
+            var preload = document.createElement('link');
+            preload.rel = 'preload';
+            preload.as = 'style';
+            preload.href = blastSheets[i].href;
+            document.head.appendChild(preload);
+          } else {
+            blastSheets[i].media = 'all';
+          }
+        }
+      } catch (_) {}
+    </script>
+  </body>
+</html>
